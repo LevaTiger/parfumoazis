@@ -11,12 +11,47 @@ div nav{
     padding-right:1rem;
 }
 
-@media screen and (min-width:566px) {
-    div nav ul {
-        display: none;
-    }
-    
+.hamburger{
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
 }
+
+@media screen and (max-width:768px) {
+    .hamburger{
+        display: block;
+    }
+    nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        width: 200px;
+    }
+
+    nav.open {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    nav ul li {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+}
+
+
 div nav ul {
     list-style: none;
 
@@ -29,6 +64,11 @@ div nav ul {
 div nav ul li a{
     text-decoration: none;
     color: black;
+}
+
+div nav ul li a:hover{
+    color: #FC5F5F;
+    -webkit-transition: color 200ms;
 }
 div .logo{
     display: flex;
