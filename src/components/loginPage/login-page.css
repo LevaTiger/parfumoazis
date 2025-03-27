@@ -1,0 +1,84 @@
+
+.bg{
+    margin: 0;
+    background-image: url('https://www.parfumoazis.hu/wp-content/uploads/2024/10/image1-e1729533035134.jpeg');
+    background-size: cover;
+    background-position: center;
+    
+    object-fit:fill;
+    box-sizing: border-box;
+}
+.bg .blur-bg{
+    backdrop-filter: blur(5px);
+
+}
+.login-body{
+    margin: 0 auto;
+    padding: 1rem;
+    max-width: 1200px;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+@media screen and (max-width:1200px) {
+   
+}
+.login-body form h3 {
+    background-color: rgba(255, 255, 255, 0.717);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.189); 
+    text-align: center;
+}
+.login-body h5 {
+    background-color: rgba(255, 255, 255, 0.717);
+    padding: .5rem;
+    border-radius: 10px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.189); 
+    text-align: center;
+}
+
+.login-body form{
+    background-color: rgba(255, 255, 255, 0.457);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.189);
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+.login-body form button {
+    border: 0px;
+    border-radius: 15px;
+    background-color: white;
+    padding: .5rem;
+}
+.login-body form button:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.login-body form .user-input{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: .5rem;
+    padding: .2rem;
+}
+
+.login-body form .user-input .input-label{
+    background-color: rgba(255, 255, 255, 0.696);
+    padding: .2rem;
+    border-radius: 10px;
+}
