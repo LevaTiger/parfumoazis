@@ -7,6 +7,9 @@
     
     object-fit:fill;
     box-sizing: border-box;
+
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
 }
 .bg .blur-bg{
     backdrop-filter: blur(5px);

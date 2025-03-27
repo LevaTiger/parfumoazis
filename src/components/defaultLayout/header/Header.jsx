@@ -14,7 +14,7 @@ const Header=()=>{
                 <h2>Parfüm Oázis</h2>
             </div>
             <div className="hamburger" onClick={()=> setMenuVisible(!menuVisible)}>
-                ☰
+                {`${!menuVisible? '☰' : 'X'}`}
             </div>
             <nav className={menuVisible? "open" : ""}>
                 <ul>

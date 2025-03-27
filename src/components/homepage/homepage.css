@@ -4,15 +4,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'Nunito', sans-serif;
+    margin: 1rem;
 }
 
 .primary-gradient{
     background-image:linear-gradient(0deg, #f5eacd, #F1ECEC) ;
     padding: 1rem;
+    width: 95%;
 
 }
 .home-layout h2{
-    font-weight: 600;
+    font-weight: 700;
     font-size: 40px;
     text-align: center;
 }
@@ -22,17 +25,24 @@
         font-size:21px;
         font-weight: 600;
     }
+    .parfume-types{
+        flex-direction: row;
+    }
 }
 
-
+/* Parfüm típusok innen */
 .parfume-types{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
 }
+
 .parfume-types div{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-content: space-between;
     gap: 2rem;
 }
 .parfume-types div img{
@@ -51,9 +61,60 @@
     padding: .5rem;
     color:white;
     transition: background-color 200ms, color 200ms;
+    box-shadow: 0px 5px 5px grey;
 }
 .parfume-types div button:hover{
-    background-color: white;
+    background-color: #F1ECEC;
     color: black;
     cursor: pointer;
+}
+
+.parfume-types div button h4{
+    letter-spacing: 0.3rem;
+}
+/* Parfüm típusok idáig */
+
+
+/* Parfümök akcióban innen */
+
+.parfume-onsale{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.parfume-onsale div{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    gap: 2rem;
+}
+.parfume-onsale div img{
+    width: 200px;
+    transition: all .2s ease-in-out;
+   
+}
+.parfume-onsale div img:hover {
+    transform: scale(1.1);
+}
+
+.parfume-onsale div button {
+    border: 0px;
+    border-radius: 50px;
+    background-color: black;
+    padding: .5rem;
+    color:white;
+    transition: background-color 200ms, color 200ms;
+    box-shadow: 0px 5px 5px grey;
+}
+.parfume-onsale div button:hover{
+    background-color: #F1ECEC;
+    color: black;
+    cursor: pointer;
+}
+
+.parfume-onsale div button h4{
+    letter-spacing: 0.3rem;
 }
