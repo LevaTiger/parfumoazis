@@ -22,23 +22,24 @@ const router = createBrowserRouter([
             },
             {
                 path:'/ferfi-parfumok',
-                element:<h2>ferfi parfümök</h2>
+                element:<h2>A Weboldal fejlesztés alatt áll!</h2>
+
             },
             {
                 path:'/noi-parfumok' ,
-                element: <h2>női parfümök</h2>,
+                element: <h2>A Weboldal fejlesztés alatt áll!</h2>,
             },
             {
                 path:'/unisex-parfumok' ,
-                element: <h2>unisex parfümök</h2> ,
+                element: <h2>A Weboldal fejlesztés alatt áll!</h2> ,
             },
             {
                 path: '/rolunk' ,
-                element: <h2>rólunk</h2> ,
+                element: <h2>A Weboldal fejlesztés alatt áll!</h2> ,
             },
             {
                 path:'/kosar' ,
-                element:<h2>kosár</h2> ,
+                element:<h2>A Weboldal fejlesztés alatt áll!</h2> ,
             },
             {
                 path:'/webshop',

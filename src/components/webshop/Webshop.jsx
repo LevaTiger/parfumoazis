@@ -5,7 +5,7 @@ const Webshop =()=>{
 
     return(
         <div>
-            <h2>Webshop tartalma</h2>
+            <h2>A Weboldal fejlesztés alatt áll!</h2>
         </div>
     )
 }
