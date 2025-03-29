@@ -12,6 +12,8 @@ const Homepage=()=>{
 
                 <h2 className="primary-gradient">NÉZD MEG TERMÉKEINKET</h2>
 
+            {/* itt ezdődnek a aprfüm típusok */}
+
                 <div className="parfume-types">
                     <div>
                         <img src="https://www.parfumoazis.hu/wp-content/uploads/2024/11/ferfi1.jpg" alt="" />

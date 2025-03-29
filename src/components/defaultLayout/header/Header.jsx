@@ -25,6 +25,10 @@ const Header=()=>{
                     </li>
                     
                     <li>
+                        <NavLink to={'/webshop'} className={({ isActive }) => (isActive ? 'active' : '')}>Webshop</NavLink>
+                    </li>
+                    
+                    <li>
                         <NavLink to={'/ferfi-parfumok'} className={({ isActive }) => (isActive ? 'active' : '')}>Férfi Parfümök</NavLink>
                     </li>
                     <li>

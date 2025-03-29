@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import LoginPage from "../components/loginPage/LoginPage";
 import Homepage from "../components/homepage/Homepage";
 import DefaultLayout from "../components/defaultLayout/DefaultLayout";
+import Webshop from "../components/webshop/Webshop";
 
 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
             {
                 path:'/kosar' ,
                 element:<h2>kosár</h2> ,
+            },
+            {
+                path:'/webshop',
+                element:<Webshop />
             }
 
         ]

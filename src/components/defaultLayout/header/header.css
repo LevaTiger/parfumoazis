@@ -17,6 +17,10 @@ div nav{
     font-size: 2rem;
     cursor: pointer;
     box-shadow: 1px 1px 4px black;
+    color: #FC5F5F;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
 }
 .hamburger:hover{
     cursor: pointer;
@@ -63,7 +67,7 @@ div nav ul {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-end;
+    justify-content: center;
     gap: 1rem;
 }
 div nav ul li a{
