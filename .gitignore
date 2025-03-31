@@ -8,7 +8,7 @@
 firebase.json
 .firebaserc
 /firebase
-
+/public/assets/json/cvsjson.json
 # testing
 /coverage
 
