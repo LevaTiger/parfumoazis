@@ -17,6 +17,8 @@ const Webshop =()=>{
         fetchData();
     }, [])
 
+    console.log("Webshop Data:", webshopData);
+
     return(
         <div className='container webshop'>
             <div className="sidebar">
