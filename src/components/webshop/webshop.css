@@ -1,3 +1,45 @@
 div h2{
     text-align: center;
 }
+
+.webshop {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.webshop .sidebar{
+    width: 20%;
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    flex-direction: column;
+}
+
+.webshop .product-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap ;
+    gap: 1rem;
+    width: 80%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .webshop {
+        flex-direction: column; /* Válts át oszlopos elrendezésre mobilon */
+    }
+
+    .webshop .sidebar {
+        width: 100%; /* A sidebar teljes szélességű legyen */
+        margin-bottom: 1rem; /* Kisebb margó a sidebar alatt */
+    }
+
+    .webshop .product-list {
+        width: 100%; /* A terméklista teljes szélességű legyen */
+        gap: 1rem; /* Kisebb gap a kártyák között */
+    }
+
+    .product-list {
+        justify-content: center; /* Középre igazítás */
+    }
+}
