@@ -48,18 +48,27 @@
 .card button{  
     border: 0px;
     border-radius: 50px;
-    background-color: black;
+    background-color: #75c32c;
     padding: 1rem;
     color:white;
     transition: background-color 200ms, color 200ms;
     box-shadow: 0px 5px 5px grey; 
     font-weight: bold;
-
+    
     margin-bottom: 1rem;
 }
 
 .card button:hover{
-    background-color: #F1ECEC;
-    color: black;
+    background-color: #FC5F5F;
     cursor: pointer;
+}
+
+.card .purchase-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+.card .purchase-item a {
+    color: grey;
 }

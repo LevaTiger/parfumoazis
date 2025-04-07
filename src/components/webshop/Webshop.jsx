@@ -22,7 +22,10 @@ const Webshop =()=>{
     return(
         <div className='container webshop'>
             <div className="sidebar">
-                <input type="search" placeholder='Parfümök keresése...' />
+                <div className="searchbar">
+                    <input type="search" placeholder='Parfümök keresése...' />
+                    <button>KERESÉS</button>
+                </div>
                     <div>
                         <input type="checkbox" id='women-parfumes' />
                         <label htmlFor="women-parfumes">Női Parfümök</label>

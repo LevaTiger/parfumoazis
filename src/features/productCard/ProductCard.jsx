@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import './product-card.css'
 
 const ProductCard=({ product })=>{
@@ -11,7 +12,10 @@ const ProductCard=({ product })=>{
             </figure>
             <h4 className="card-title">{product.Név}</h4>
             <p>Ár: {product['Normál ár']} </p>
-            <button>Kosárba</button>
+            <div className="purchase-item">
+                <button>Kosárba</button>
+                <Link>Részletek...</Link>
+            </div>
         </div>
     )
 }
