@@ -1,9 +1,11 @@
-import { Link, NavLink } from "react-router";
+import { NavLink, useLocation } from "react-router";
 import './header.css'
 import { useState } from "react";
 const Header=()=>{
 
     const [menuVisible, setMenuVisible] = useState(false);
+    const location = useLocation();
+
 
     return(
         <div className="header-content">
@@ -25,17 +27,17 @@ const Header=()=>{
                     </li>
                     
                     <li>
-                        <NavLink to={'/webshop'} className={({ isActive }) => (isActive ? 'active' : '')}>Webshop</NavLink>
+                        <NavLink to={'/webshop'} className={({ isActive }) => (isActive && location.pathname === '/webshop' && location.search === '' ? 'active' : '')}>Webshop</NavLink>
                     </li>
                     
                     <li>
-                        <NavLink to={'/ferfi-parfumok'} className={({ isActive }) => (isActive ? 'active' : '')}>Férfi Parfümök</NavLink>
+                        <NavLink to={'/webshop?ferfi=true'} className={({ isActive }) => (isActive && location.pathname=== '/webshop' && location.search === '?ferfi=true' ? 'active' : '')}>Férfi Parfümök</NavLink>
                     </li>
                     <li>
-                        <NavLink to={'/noi-parfumok'} className={({ isActive }) => (isActive ? 'active' : '')}>Női Parfümök</NavLink>
+                        <NavLink to={'/webshop?noi=true'} className={({ isActive }) => (isActive && location.pathname === '/webshop' && location.search === '?noi=true' ? 'active' : '')}>Női Parfümök</NavLink>
                     </li>
                     <li>
-                        <NavLink to={'/unisex-parfumok'} className={({ isActive }) => (isActive ? 'active' : '')}>Unisex Parfümök</NavLink>
+                        <NavLink to={'/webshop?unisex=true'} className={({ isActive }) => (isActive && location.pathname === '/webshop' && location.search === '?unisex=true' ? 'active' : '')}>Unisex Parfümök</NavLink>
                     </li>
                     <li>
                         <NavLink to={'/rolunk'} className={({ isActive }) => (isActive ? 'active' : '')}>Rólunk</NavLink>

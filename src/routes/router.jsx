@@ -22,17 +22,17 @@ const router = createBrowserRouter([
                 element: <LoginPage />
             },
             {
-                path:'/ferfi-parfumok',
-                element:<h2>A Weboldal fejlesztés alatt áll!</h2>
+                path:'/webshop?ferfi=true',
+                element:<Webshop />
 
             },
             {
-                path:'/noi-parfumok' ,
-                element: <h2>A Weboldal fejlesztés alatt áll!</h2>,
+                path:'/webshop?noi=true' ,
+                element: <Webshop />,
             },
             {
-                path:'/unisex-parfumok' ,
-                element: <h2>A Weboldal fejlesztés alatt áll!</h2> ,
+                path:'/webshop?unisex=true' ,
+                element: <Webshop /> ,
             },
             {
                 path: '/rolunk' ,
