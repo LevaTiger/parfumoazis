@@ -2,22 +2,28 @@
     padding: 20px;
     max-width: 800px;
     margin: auto;
-    font-family: 'Arial', sans-serif;
+}
+.cart-container h1{
+    text-align: center;
 }
 
 .cart-table {
     width: 100%;
     border-collapse: collapse;
+    background-color: #f3f3f3;
 }
 
 .cart-table th, .cart-table td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
+    font-size: large;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .cart-table th {
-    background-color: #f4f4f4;
+    background-color: #e7e7e7;
 }
 
 .cart-table img {
@@ -40,17 +46,22 @@
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
+    width: 200px;
+    height: 40px;
 }
 
 .cart-table button:hover {
-    background-color: #ff1a1a;
+    background-color: hsl(0, 100%, 45%);
 }
 
 /* Mobil nézet */
 @media (max-width: 600px) {
     .cart-table {
-        display: block; /* Blokk szintű elrendezés */
+        display: flex; /* Blokk szintű elrendezés */
+        flex-direction: column;
+        align-items: stretch;
         overflow-x: auto; /* Görgetés engedélyezése */
+        text-align: center;
     }
 
     .cart-table thead {
@@ -68,7 +79,12 @@
     .cart-table td {
         display: flex;
         justify-content: space-between; /* Tartalom elrendezése */
-        padding: 5px 0; /* Térköz a cellák között */
+        padding: 1rem; 
+        /* Térköz a cellák között */
+    }
+    .cart-table th, .cart-table td {
+        font-size: x-large;
+
     }
 
     .cart-table img {
