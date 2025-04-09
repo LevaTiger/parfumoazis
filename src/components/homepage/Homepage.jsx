@@ -1,6 +1,14 @@
+import { Link } from 'react-router';
 import './homepage.css'
 
 const Homepage=()=>{
+
+    const scrollToTop = ()=>{
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
 
     return(
         <div className="container">
@@ -9,6 +17,17 @@ const Homepage=()=>{
                 <figure>
                     <img width={'100%'} src="https://www.parfumoazis.hu/wp-content/uploads/2024/10/image1-e1729533035134.jpeg" alt="hero-img" />
                 </figure>
+                {/* <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="background-video"
+                    width={'25%'}
+                >
+                    <source src="/assets/media/parfumes-video.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video> */}
 
                 <h2 className="primary-gradient">NÉZD MEG TERMÉKEINKET</h2>
 
@@ -16,16 +35,23 @@ const Homepage=()=>{
 
                 <div className="parfume-types">
                     <div>
-                        <img src="https://www.parfumoazis.hu/wp-content/uploads/2024/11/ferfi1.jpg" alt="" />
-                        <button><h4>FÉRFI PARFÜMÖK</h4></button>
+                        <img src="https://www.parfumoazis.hu/wp-content/uploads/2024/11/ferfi1.jpg" alt="Férfi parfümök" />
+                        <Link to={'/webshop?ferfi=true'} onClick={scrollToTop}>
+                            <button><h4>FÉRFI PARFÜMÖK</h4></button>
+                        </Link>
+                        
                     </div>
                     <div>
-                        <img src="https://www.parfumoazis.hu/wp-content/uploads/2024/11/noi1.jpg" alt="" />
-                        <button><h4>NŐI PARFÜMÖK</h4></button>
+                        <img src="https://www.parfumoazis.hu/wp-content/uploads/2024/11/noi1.jpg" alt="Női parfümök" />
+                        <Link to={'/webshop?noi=true'} onClick={scrollToTop}>
+                            <button><h4>NŐI PARFÜMÖK</h4></button>
+                        </Link>
                     </div>
                     <div>
-                        <img src="https://www.parfumoazis.hu/wp-content/uploads/2024/11/892750C9-EED7-499F-94BB-E4B101F05FF41.png" alt="" />
-                        <button><h4>UNISEX PARFÜMÖK</h4></button>
+                        <img src="https://www.parfumoazis.hu/wp-content/uploads/2024/11/892750C9-EED7-499F-94BB-E4B101F05FF41.png" alt="Unisex parfümök" />
+                        <Link to={'/webshop?unisex=true'} onClick={scrollToTop}>
+                            <button><h4>UNISEX PARFÜMÖK</h4></button>
+                        </Link>
                     </div>
                 </div>
                 <h2 className="primary-gradient">AKCIÓS SZETTEK</h2>

@@ -62,6 +62,9 @@
     color:white;
     transition: background-color 200ms, color 200ms;
     box-shadow: 0px 5px 5px grey;
+
+    width: 100%;
+    max-width: 300px;
 }
 .parfume-types div button:hover{
     background-color: #F1ECEC;

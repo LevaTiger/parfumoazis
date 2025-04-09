@@ -1,0 +1,100 @@
+.cart-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    font-family: 'Arial', sans-serif;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-table th, .cart-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.cart-table th {
+    background-color: #f4f4f4;
+}
+
+.cart-table img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.cart-table input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.cart-table button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cart-table button:hover {
+    background-color: #ff1a1a;
+}
+
+/* Mobil nézet */
+@media (max-width: 600px) {
+    .cart-table {
+        display: block; /* Blokk szintű elrendezés */
+        overflow-x: auto; /* Görgetés engedélyezése */
+    }
+
+    .cart-table thead {
+        display: none; /* Fejléc elrejtése */
+    }
+
+    .cart-table tr {
+        display: flex;
+        flex-direction: column; /* Oszlopos elrendezés */
+        margin-bottom: 15px; /* Térköz a sorok között */
+        border: 1px solid #ddd; /* Sorok kerete */
+        padding: 10px; /* Térköz a sorok belsejében */
+    }
+
+    .cart-table td {
+        display: flex;
+        justify-content: space-between; /* Tartalom elrendezése */
+        padding: 5px 0; /* Térköz a cellák között */
+    }
+
+    .cart-table img {
+        width: 40px; /* Kép méretének csökkentése */
+    }
+
+    .cart-table input[type="number"] {
+        width: 40px; /* Mennyiség input szélességének csökkentése */
+    }
+
+    /* Kártya stílusú elrendezés */
+    .cart-table tr {
+        display: flex;
+        flex-direction: column;
+        border: none; /* Eltávolítjuk a táblázat keretét */
+        background-color: #f9f9f9; /* Kártya háttérszín */
+        border-radius: 8px; /* Kerekített sarkok */
+        padding: 15px; /* Térköz a kártyák belsejében */
+    }
+
+    .cart-table td {
+        display: block; /* Blokk szintű elrendezés a cellákban */
+        margin-bottom: 10px; /* Térköz a cellák között */
+    }
+
+    .cart-table td:last-child {
+        margin-bottom: 0; /* Az utolsó cella alatti térköz eltávolítása */
+    }
+}

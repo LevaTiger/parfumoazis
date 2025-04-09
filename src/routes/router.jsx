@@ -4,6 +4,7 @@ import Homepage from "../components/homepage/Homepage";
 import DefaultLayout from "../components/defaultLayout/DefaultLayout";
 import Webshop from "../components/webshop/Webshop";
 import About from "../components/about/About";
+import Cart from "../components/cart/Cart";
 
 
 const router = createBrowserRouter([
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/kosar' ,
-                element:<h2>A Weboldal fejlesztés alatt áll!</h2> ,
+                element:<Cart /> ,
             },
             {
                 path:'/webshop',
