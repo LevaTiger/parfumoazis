@@ -16,15 +16,26 @@ const Webshop =()=>{
 
     const location = useLocation()
 
+ 
     useEffect(()=>{
+      let isMounted = true;
+      if (location.pathname.startsWith('/webshop')){
 
         const fetchData= async ()=>{
             const response = await fetch('/assets/json/csvjson.json')
             const webshopItems = await response.json();
-            setWebshopData(webshopItems);
+            if (isMounted){
+
+              setWebshopData(webshopItems);
+            }
         }
         fetchData();
-    }, [])
+      }
+      return ()=>{
+        isMounted = false;
+      }
+    }, [location.pathname])
+
     console.log("Webshop Data:", webshopData);
     
     useEffect(()=>{
