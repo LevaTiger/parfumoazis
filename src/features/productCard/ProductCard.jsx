@@ -14,7 +14,7 @@ const ProductCard=({ product })=>{
             <p>Ár: {product['Normál ár']} </p>
             <div className="purchase-item">
                 <button>Kosárba</button>
-                <Link>Részletek...</Link>
+                <Link to={`/webshop/${product.Azonosító}`}>Részletek...</Link>
             </div>
         </div>
     )

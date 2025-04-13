@@ -6,6 +6,7 @@ import DefaultLayout from "../components/defaultLayout/DefaultLayout";
 import Webshop from "../components/webshop/Webshop";
 import About from "../components/about/About";
 import Cart from "../components/cart/Cart";
+import ProductDetails from "../features/productDetails/ProductDetails";
 
 
 const router = createBrowserRouter([
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
             {
                 path:'/webshop',
                 element:<Webshop />
+            },
+            {
+                path:'/webshop/:productId',
+                element: <ProductDetails />
             }
 
         ]
