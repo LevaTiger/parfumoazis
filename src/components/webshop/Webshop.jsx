@@ -81,30 +81,31 @@ const Webshop =()=>{
     
       const filteredProducts = webshopData.filter(item => {
         const name = item.Név?.toLowerCase() || '';
+        const description = item.Leírás?.toLowerCase() || ''; // Feltételezve, hogy van 'Leírás' mező
         const category = item.Kategória?.toLowerCase() || '';
         const isOnSale = category.includes('akció') || item['Akciós ár'] !== '';
-      
+    
         const matchesSearch = searchTerm
-          .toLowerCase()
-          .split(' ')
-          .every(word => name.includes(word));
-      
+            .toLowerCase()
+            .split(' ')
+            .every(word => name.includes(word) || description.includes(word)); // Keresés a névben és a leírásban
+    
         const anyCategoryFilterActive =
-          filters['women-parfumes'] ||
-          filters['men-parfumes'] ||
-          filters['unisex-parfumes'] ||
-          filters['onsale-parfumes'];
-      
+            filters['women-parfumes'] ||
+            filters['men-parfumes'] ||
+            filters['unisex-parfumes'] ||
+            filters['onsale-parfumes'];
+    
         const matchesCategory =
-          !anyCategoryFilterActive || (
-            (filters['women-parfumes'] && category.includes('női parfümök')) ||
-            (filters['men-parfumes'] && category.includes('férfi parfümök')) ||
-            (filters['unisex-parfumes'] && category.includes('unisex parfümök')) ||
-            (filters['onsale-parfumes'] && isOnSale)
-          );
-      
+            !anyCategoryFilterActive || (
+                (filters['women-parfumes'] && category.includes('női parfümök')) ||
+                (filters['men-parfumes'] && category.includes('férfi parfümök')) ||
+                (filters['unisex-parfumes'] && category.includes('unisex parfümök')) ||
+                (filters['onsale-parfumes'] && isOnSale)
+            );
+    
         return matchesSearch && matchesCategory;
-      });
+    });
       
 
     return(
