@@ -11,3 +11,5 @@ export const WebshopProvider = ({ children }) => {
         </WebshopContext.Provider>
     );
 };
+
+/**Context arra, hogy a ProuctDetails-ben elérhető és megjeleníthető legyen a kiválasztott termék */

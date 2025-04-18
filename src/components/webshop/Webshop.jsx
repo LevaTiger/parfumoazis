@@ -14,6 +14,19 @@ const Webshop =()=>{
         'onsale-parfumes': false
     })
 
+    //kosárba - termék eltárolása funkció
+    const [cartItems, setCartItems] = useState([])
+
+    const addToCart = (product)=>{
+
+        const existingItems = JSON.parse(localStorage.getItem('cartItems')) ||[];
+
+        const updateItems = [...existingItems, product];
+
+        setCartItems(updateItems);
+        localStorage.setItem('cartItems', JSON.stringify(updateItems));
+    }
+    //kosárba - termék eltárolása funkció
     const location = useLocation()
 
  
@@ -148,7 +161,7 @@ const Webshop =()=>{
       </div>
       <div className="product-list">
         {filteredProducts.map(item => (
-          <ProductCard key={item.Azonosító} product={item} />
+          <ProductCard key={item.Azonosító} product={item} addToCart={addToCart} />
         ))}
       </div>
     </div>

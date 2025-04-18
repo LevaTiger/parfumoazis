@@ -7,12 +7,16 @@ const Header=()=>{
     const location = useLocation();
 
 
+    const mainPage = ()=>{
+        window.location.assign('/')
+    }
+
     return(
         <div className="header-content">
-            <div className="logo">
+            <div onClick={mainPage} className="logo">
                 <figure>
                     <img src="/assets/media/logo.jpeg" alt="Parfüm Oázis Logo" />
-                    </figure>
+                </figure>
                 <h2>Parfüm Oázis</h2>
             </div>
             <div className="hamburger" onClick={()=> setMenuVisible(!menuVisible)}>

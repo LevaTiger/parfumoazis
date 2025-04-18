@@ -26,8 +26,14 @@
     background-color: #e7e7e7;
 }
 
+.cart-table tbody tr td .product-name-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .cart-table img {
-    width: 50px;
+    width: 100px;
     height: auto;
     margin-right: 10px;
 }
@@ -63,7 +69,11 @@
         overflow-x: auto; /* Görgetés engedélyezése */
         text-align: center;
     }
+    
+    .cart-table tbody {
+        background-color: rgb(255, 181, 181);
 
+    }
     .cart-table thead {
         display: none; /* Fejléc elrejtése */
     }

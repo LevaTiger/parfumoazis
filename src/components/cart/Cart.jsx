@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './cart.css'; // CSS fájl a stílusokhoz
 
 const Cart = () => {
@@ -20,14 +20,28 @@ const Cart = () => {
         // További termékek...
     ]);
 
+    const [cartItems, setCartItems] = useState([]);
+
+    useEffect(()=>{
+        const storedItems = localStorage.getItem('cartItems');
+        if (storedItems) {
+            setCartItems(JSON.parse(storedItems));
+        }
+    }, []);
+
     const handleQuantityChange = (id, newQuantity) => {
-        setProducts(products.map(product => 
-            product.id === id ? { ...product, quantity: newQuantity } : product
-        ));
+        const quantity = parseInt(newQuantity, 10); // Konvertáljuk számra
+        if (isNaN(quantity) || quantity < 1) return; // Ha nem szám vagy kisebb mint 1, ne frissítsük
+
+        const updatedItems = cartItems.map(product => 
+            product.Azonosító === id ? { ...product, quantity } : product
+        );
+        setCartItems(updatedItems);
+        localStorage.setItem('cartItems', JSON.stringify(updatedItems));
     };
 
     const handleRemoveProduct = (id) => {
-        setProducts(products.filter(product => product.id !== id));
+        setProducts(cartItems.filter(product => product.id !== id));
     };
 
     return (
@@ -44,22 +58,24 @@ const Cart = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {products.map(product => (
-                        <tr key={product.id}>
+                    {cartItems.map((product, index) => (
+                        <tr key={index}>
                             <td>
-                                <img src={product.image} alt={product.name} />
-                                {product.name}
+                                <div className="product-name-img">
+                                    <img src={product.Kép} alt={product.Név} />
+                                    <p><b>{product.Név}</b></p>
+                                </div>
                             </td>
-                            <td>{product.price} Ft</td>
+                            <td>{product.Ár} Ft</td>
                             <td>
                                 <input
                                     type="number"
                                     min="1"
                                     value={product.quantity}
-                                    onChange={(e) => handleQuantityChange(product.id, parseInt(e.target.value))}
+                                    onChange={(e) => handleQuantityChange(product.Azonosító, parseInt(e.target.value))}
                                 />
                             </td>
-                            <td>{product.price * product.quantity} Ft</td>
+                            <td>{product.Ár * product.quantity} Ft</td>
                             <td>
                                 <button onClick={() => handleRemoveProduct(product.id)}>Törlés</button>
                             </td>

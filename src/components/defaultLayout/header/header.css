@@ -13,6 +13,18 @@ div nav{
     padding-right:1rem;
 }
 
+.logo {
+    cursor: pointer;
+}
+.logo h2:hover {
+    transition-duration: 200ms;
+}
+.logo h2:hover{
+    text-shadow: 0px 10px 10px grey;
+    color: #FC5F5F;
+
+}
+
 .hamburger{
     display: none;
     font-size: 2rem;
@@ -74,11 +86,13 @@ div nav ul {
 div nav ul li a{
     text-decoration: none;
     color: black;
+    border-bottom: transparent;
+    transition-duration: 200ms;
 }
 
 div nav ul li a:hover{
     color: #FC5F5F;
-    -webkit-transition: color 200ms;
+    border-bottom: 1px solid #FC5F5F;
 }
 div .logo{
     display: flex;
