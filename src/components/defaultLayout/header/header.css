@@ -11,6 +11,7 @@
 div nav{
     padding-left: 1rem;
     padding-right:1rem;
+    z-index: 800;
 }
 
 .logo {
@@ -93,6 +94,15 @@ div nav ul li a{
 div nav ul li a:hover{
     color: #FC5F5F;
     border-bottom: 1px solid #FC5F5F;
+}
+div nav ul li{
+    transition-duration: 200ms;
+    border-bottom: transparent;
+}
+div nav ul li:hover{
+    cursor: pointer;
+    color: #fcc25f;
+    border-bottom: 1px solid #fcc25f;
 }
 div .logo{
     display: flex;

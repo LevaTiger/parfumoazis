@@ -62,3 +62,9 @@ footer .copyright{
     border-top: 1px solid grey;
     padding: 1rem;
 }
+.social-links ul li a svg {
+    transition-duration: 200ms;
+}
+.social-links ul li a svg:hover{
+    color: rgb(101, 201, 101);
+}
