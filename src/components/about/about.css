@@ -19,7 +19,8 @@ article .article-section figure img{
 article .article-section div{
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 85%;
+    margin: 0 auto;
 }
 article .article-section div p {
     padding: .5rem;
@@ -42,6 +43,7 @@ article{
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 article button:hover{
     background-color: #F1ECEC;
