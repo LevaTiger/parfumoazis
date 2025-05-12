@@ -61,6 +61,17 @@ footer .social-links ul li:hover{
 footer .copyright{
     border-top: 1px solid grey;
     padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+@media screen and (max-width: 768px) {
+
+    footer .copyright {
+        flex-direction: column;
+        align-items: center;
+    }
+    
 }
 .social-links ul li a svg {
     transition-duration: 200ms;
