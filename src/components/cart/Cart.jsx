@@ -1,48 +1,50 @@
 import { useEffect, useState } from 'react';
 import './cart.css'; // CSS fájl a stílusokhoz
+import { handleTouch } from '../../features/functions/handleTouch';
 
 const Cart = () => {
-    const [products, setProducts] = useState([
-        {
-            id: 1,
-            name: 'Termék 1',
-            price: 1000,
-            quantity: 1,
-            image: 'https://picsum.photos/100',
-        },
-        {
-            id: 2,
-            name: 'Termék 2',
-            price: 1500,
-            quantity: 1,
-            image: 'https://picsum.photos/100',
-        },
-        // További termékek...
-    ]);
+    const [products] = useState([]);
 
     const [cartItems, setCartItems] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         const storedItems = localStorage.getItem('cartItems');
         if (storedItems) {
-            setCartItems(JSON.parse(storedItems));
+            try {
+                const parsedItems = JSON.parse(storedItems);
+                // Frissítjük a mennyiségeket a termékek alapértelmezett értékeivel
+                const updatedItems = parsedItems.map(item => {
+                    const product = products.find(p => p.id === item.Azonosító);
+                    return {
+                        ...item,
+                        quantity: product ? item.Mennyiség : 1 // Ha a termék nem található, alapértelmezett mennyiség
+                    };
+                });
+                setCartItems(updatedItems);
+            } catch (error) {
+                console.error("Hiba a JSON elemzésében:", error);
+            }
         }
-    }, []);
+    }, [products]);
 
-    const handleQuantityChange = (id, newQuantity) => {
+
+    const handleQuantityChange = (azonosito, newQuantity) => {
         const quantity = parseInt(newQuantity, 10); // Konvertáljuk számra
         if (isNaN(quantity) || quantity < 1) return; // Ha nem szám vagy kisebb mint 1, ne frissítsük
-
+    
         const updatedItems = cartItems.map(product => 
-            product.Azonosító === id ? { ...product, quantity } : product
+            product.Azonosító === azonosito ? { ...product, Mennyiség: quantity } : product
         );
         setCartItems(updatedItems);
         localStorage.setItem('cartItems', JSON.stringify(updatedItems));
     };
-
-    const handleRemoveProduct = (id) => {
-        setProducts(cartItems.filter(product => product.id !== id));
+    
+    const handleRemoveProduct = (azonosito) => {
+        const updatedItems = cartItems.filter(product => product.Azonosító !== azonosito);
+        setCartItems(updatedItems);
+        localStorage.setItem('cartItems', JSON.stringify(updatedItems)); // Frissítjük a localStorage-t is
     };
+    
 
     return (
         <div className="cart-container">
@@ -67,17 +69,29 @@ const Cart = () => {
                                 </div>
                             </td>
                             <td>{product.Ár} Ft</td>
-                            <td>
-                                <input
-                                    type="number"
-                                    min="1"
-                                    value={product.quantity}
-                                    onChange={(e) => handleQuantityChange(product.Azonosító, parseInt(e.target.value))}
-                                />
+                            <td className='value-td'>
+                                <div className="value-td-div">
+                                    <button 
+                                        onTouchStart={handleTouch}
+                                        className='value-add-btn'
+                                        onClick={() => handleQuantityChange(product.Azonosító, product.Mennyiség + 1)}    
+                                    >+</button>
+                                    <input
+                                        type="number"
+                                        value={product.Mennyiség}
+                                        min={1}
+                                        onChange={(e) => handleQuantityChange(product.Azonosító, parseInt(e.target.value))}
+                                    />
+                                    <button 
+                                        onTouchStart={handleTouch}
+                                        className='value-subtract-btn'
+                                        onClick={() => handleQuantityChange(product.Azonosító, product.Mennyiség - 1)}    
+                                    >-</button>
+                                </div>
                             </td>
-                            <td>{product.Ár * product.quantity} Ft</td>
+                            <td>{product.Ár * product.Mennyiség} Ft</td>
                             <td>
-                                <button onClick={() => handleRemoveProduct(product.id)}>Törlés</button>
+                                <button onClick={() => handleRemoveProduct(product.Azonosító)}>Törlés</button>
                             </td>
                         </tr>
                     ))}

@@ -14,11 +14,13 @@ const ProductCard=({ product, addToCart })=>{
             <p>Ár: {product['Normál ár']} </p>
             <div className="purchase-item">
                 <button 
+                
                     onClick={()=> addToCart({
                         Azonosító: product.Azonosító,
                         Név: product.Név,
                         Ár: product[`Normál ár`],
-                        Kép: product.Képek
+                        Kép: product.Képek,
+                        Mennyiség: 1
                     })}>
                         Kosárba
                 </button>

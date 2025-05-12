@@ -1,6 +1,4 @@
-
-
-.home-layout{
+.home-layout {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,30 +6,30 @@
     margin: 1rem;
 }
 
-.primary-gradient{
-    background-image:linear-gradient(0deg, #f5eacd, #F1ECEC) ;
+.primary-gradient {
+    background-image: linear-gradient(0deg, #f5eacd, #F1ECEC);
     padding: 1rem;
     width: 95%;
-
 }
-.home-layout h2{
+
+.home-layout h2 {
     font-weight: 700;
     font-size: 40px;
     text-align: center;
 }
 
-@media screen and (max-width:500px){
-    .home-layout h2{
-        font-size:21px;
+@media screen and (max-width: 500px) {
+    .home-layout h2 {
+        font-size: 21px;
         font-weight: 600;
     }
-    .parfume-types{
+    .parfume-types {
         flex-direction: row;
     }
 }
 
 /* Parfüm típusok innen */
-.parfume-types{
+.parfume-types {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -39,17 +37,18 @@
     gap: 1.5rem;
 }
 
-.parfume-types div{
+.parfume-types div {
     display: flex;
     flex-direction: column;
     align-content: space-between;
     gap: 2rem;
 }
-.parfume-types div img{
+
+.parfume-types div img {
     width: 300px;
-    transition: all .2s ease-in-out;
-   
+    transition: all 0.2s ease-in-out;
 }
+
 .parfume-types div img:hover {
     transform: scale(1.1);
 }
@@ -58,29 +57,28 @@
     border: 0px;
     border-radius: 50px;
     background-color: black;
-    padding: .5rem;
-    color:white;
+    padding: 0.5rem;
+    color: white;
     transition: background-color 200ms, color 200ms;
     box-shadow: 0px 5px 5px grey;
 
     width: 100%;
     max-width: 300px;
 }
-.parfume-types div button:hover{
+
+.parfume-types div button:hover {
     background-color: #F1ECEC;
     color: black;
     cursor: pointer;
 }
 
-.parfume-types div button h4{
+.parfume-types div button h4 {
     letter-spacing: 0.3rem;
 }
 /* Parfüm típusok idáig */
 
-
 /* Parfümök akcióban innen */
-
-.parfume-onsale{
+.parfume-onsale {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -88,17 +86,18 @@
     gap: 1.5rem;
 }
 
-.parfume-onsale div{
+.parfume-onsale div {
     display: flex;
     flex-direction: column;
     align-content: space-between;
     gap: 2rem;
 }
-.parfume-onsale div img{
+
+.parfume-onsale div img {
     width: 200px;
-    transition: all .2s ease-in-out;
-   
+    transition: all 0.2s ease-in-out;
 }
+
 .parfume-onsale div img:hover {
     transform: scale(1.1);
 }
@@ -107,17 +106,45 @@
     border: 0px;
     border-radius: 50px;
     background-color: black;
-    padding: .5rem;
-    color:white;
+    padding: 0.5rem;
+    color: white;
     transition: background-color 200ms, color 200ms;
     box-shadow: 0px 5px 5px grey;
 }
-.parfume-onsale div button:hover{
+
+.parfume-onsale div button:hover {
     background-color: #F1ECEC;
     color: black;
     cursor: pointer;
 }
 
-.parfume-onsale div button h4{
+.parfume-onsale div button h4 {
     letter-spacing: 0.3rem;
+}
+
+/* General hover styles */
+.parfume-types div.hover img,
+.parfume-onsale div.hover img {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.parfume-types div.hover button,
+.parfume-onsale div.hover button {
+    background-color: #fc5f5f;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Restrict hover effects to smartphones */
+@media (max-width: 768px) {
+    .parfume-types div img,
+    .parfume-onsale div img {
+        transition: none;
+    }
+
+    .parfume-types div button,
+    .parfume-onsale div button {
+        transition: none;
+    }
 }

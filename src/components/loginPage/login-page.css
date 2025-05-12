@@ -1,87 +1,159 @@
-
-.bg{
-    margin: 0;
-    background-image: url('https://www.parfumoazis.hu/wp-content/uploads/2024/10/image1-e1729533035134.jpeg');
-    background-size: cover;
-    background-position: center;
-    
-    object-fit:fill;
-    box-sizing: border-box;
-
-    font-family: 'Nunito', sans-serif;
-    font-weight: 500;
-}
-.bg .blur-bg{
-    backdrop-filter: blur(5px);
-
-}
-.login-body{
-    margin: 0 auto;
-    padding: 1rem;
-    max-width: 1200px;
-    height: 100vh;
-
+/* General Page Styling */
+.login-page {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-
-}
-
-
-@media screen and (max-width:1200px) {
-   
-}
-.login-body form h3 {
-    background-color: rgba(255, 255, 255, 0.717);
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5eacd, #f1ecec);
+    font-family: 'Arial', sans-serif;
+    color: #333;
     padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 5px 5px rgba(0, 0, 0, 0.189); 
-    text-align: center;
-}
-.login-body h5 {
-    background-color: rgba(255, 255, 255, 0.717);
-    padding: .5rem;
-    border-radius: 10px;
-    box-shadow: 5px 5px rgba(0, 0, 0, 0.189); 
-    text-align: center;
 }
 
-.login-body form{
-    background-color: rgba(255, 255, 255, 0.457);
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 5px 5px rgba(0, 0, 0, 0.189);
-
-
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    flex-wrap: wrap;
-}
-.login-body form button {
-    border: 0px;
-    border-radius: 15px;
-    background-color: white;
-    padding: .5rem;
-}
-.login-body form button:hover{
-    background-color: black;
-    color: white;
-    cursor: pointer;
-}
-
-.login-body form .user-input{
+/* Container Styling */
+.login-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: .5rem;
-    padding: .2rem;
+    gap: 2rem;
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    width: 100%;
+    border: 1px solid #ddd;
 }
 
-.login-body form .user-input .input-label{
-    background-color: rgba(255, 255, 255, 0.696);
-    padding: .2rem;
+/* Section Styling */
+.login-section, .register-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background: #fff;
+    padding: 2rem;
     border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+h3 {
+    text-align: center;
+    color: #444;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+/* Input Group Styling */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.input-group label {
+    font-size: 1rem;
+    color: #555;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0.8rem;
+}
+
+.input-wrapper i {
+    font-size: 1.2rem;
+    color: #888;
+}
+
+.input-wrapper input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1rem;
+    color: #333;
+}
+
+.input-wrapper input::placeholder {
+    color: #aaa;
+}
+
+/* Checkbox Group Styling */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+.checkbox-group input {
+    width: 18px;
+    height: 18px;
+}
+
+/* Button Styling */
+button {
+    padding: 1rem;
+    background-color: #fc5f5f;
+    color: white;
+    margin: .5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #d94e4e;
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: #b83c3c;
+    transform: scale(1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
+    }
+}
+
+/* Login Overlay Styling */
+.login-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    animation: fadeOut 4s forwards;
+}
+
+/* Fade-out animation */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }

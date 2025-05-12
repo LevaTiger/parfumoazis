@@ -1,61 +1,88 @@
-import './login-page.css'
-import { handleLogin } from '../../features/functions/userLoginOut'
+import './login-page.css';
+import { handleLogin } from '../../features/functions/userLoginOut';
 import { LoginContext } from '../../features/contexts/LoginContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
-const LoginPage = ()=>{
-
+const LoginPage = () => {
     const { loginState, setLoginState } = useContext(LoginContext);
-    
-    return(
+    const [loginMessageVisible, setLoginMessageVisible] = useState(false);
 
-        <div className='bg'>
-            <div className="blur-bg">
-                <div className='login-body'>
+    const handleLoginWithMessage = () => {
+        handleLogin(setLoginState); // Perform the login logic
+        setLoginMessageVisible(true); // Show the login overlay
+        setTimeout(() => {
+            setLoginMessageVisible(false); // Hide the login overlay after 2000ms
+        }, 2000);
+    };
+
+    return (
+        <div className="login-page">
+            {loginMessageVisible && (
+                <div className="login-overlay">
+                    <p>Sikeresen bejelentkezett!</p>
+                </div>
+            )}
+            <div className="login-container">
+                {/* Login Section */}
+                <div className="login-section">
+                    <h3>Bejelentkezés</h3>
                     <form>
-                    <h3>Jelentkezzen be!</h3>
-                        <div className="user-input">
-                            <label className='input-label' htmlFor="email">E-mail cím: </label>
-                            <input  type="text" name="email" id="email" placeholder='E-mail' />
-                
+                        <div className="input-group">
+                            <label htmlFor="email">E-mail cím</label>
+                            <div className="input-wrapper">
+                                <i className="bi bi-envelope"></i>
+                                <input type="text" name="email" id="email" placeholder="E-mail" />
+                            </div>
                         </div>
-                        <div className="user-input">
-                            <label className='input-label' htmlFor="password">Jelszó: </label>
-                            <input type="password" name="password" id="password" placeholder='Jelszó'/>
-                
+                        <div className="input-group">
+                            <label htmlFor="password">Jelszó</label>
+                            <div className="input-wrapper">
+                                <i className="bi bi-lock"></i>
+                                <input type="password" name="password" id="password" placeholder="Jelszó" />
+                            </div>
                         </div>
-                        <button onClick={()=>handleLogin(setLoginState)}>Bejelentkezés</button>
+                        <button type="button" onClick={handleLoginWithMessage}>
+                            Bejelentkezés
+                        </button>
                     </form>
-                    <h5>...vagy regisztráljon!</h5>
-                    <form action="">
-                    <h3>Regisztráljon!</h3>
-                        <div className="user-input">
-                            <label className='input-label' htmlFor="register-email">E-mail cím: </label>
-                            <input  type="text" name="register-email" id="register-email" placeholder='E-mail' />
-                
+                </div>
+
+                {/* Registration Section */}
+                <div className="register-section">
+                    <h3>Regisztráció</h3>
+                    <form>
+                        <div className="input-group">
+                            <label htmlFor="register-email">E-mail cím</label>
+                            <div className="input-wrapper">
+                                <i className="bi bi-envelope"></i>
+                                <input type="text" name="register-email" id="register-email" placeholder="E-mail" />
+                            </div>
                         </div>
-                        <div className="user-input">
-                            <label className='input-label' htmlFor="register-password">Jelszó: </label>
-                            <input type="password" name="register-password" id="register-password" placeholder='Jelszó'/>
-                
+                        <div className="input-group">
+                            <label htmlFor="register-password">Jelszó</label>
+                            <div className="input-wrapper">
+                                <i className="bi bi-lock"></i>
+                                <input type="password" name="register-password" id="register-password" placeholder="Jelszó" />
+                            </div>
                         </div>
-                        <div>
-                            <label htmlFor="adatkezeles">Elfogadom az Adatkezelési Feltételeket</label>
-                            <input type='checkbox' id='adatkezeles' />
-                            
+                        <div className="checkbox-group">
+                            <label htmlFor="adatkezeles">
+                                <input type="checkbox" id="adatkezeles" />
+                                Elfogadom az Adatkezelési Feltételeket
+                            </label>
                         </div>
-                        <div>
-                        <label htmlFor="aszf">Elfogadom az Általános Szerződési Feltételeket</label>
-                        <input type='checkbox' id='aszf' />
+                        <div className="checkbox-group">
+                            <label htmlFor="aszf">
+                                <input type="checkbox" id="aszf" />
+                                Elfogadom az Általános Szerződési Feltételeket
+                            </label>
                         </div>
-                        <button>Regisztrálás</button>
+                        <button type="submit">Regisztráció</button>
                     </form>
                 </div>
             </div>
-
         </div>
-
-    )
-}
+    );
+};
 
 export default LoginPage;

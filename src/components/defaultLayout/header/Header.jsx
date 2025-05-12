@@ -1,35 +1,76 @@
 import { NavLink, useLocation } from "react-router";
-import './header.css'
-import { useContext, useState } from "react";
+import './header.css';
+import { useContext, useState, useEffect, useRef } from "react";
 import { LoginContext } from "../../../features/contexts/LoginContext";
 import { handleLogout } from "../../../features/functions/userLoginOut";
-const Header=()=>{
 
+const Header = () => {
     const [menuVisible, setMenuVisible] = useState(false);
+    const [logoutMessageVisible, setLogoutMessageVisible] = useState(false); // State for logout overlay
     const location = useLocation();
+    const menuRef = useRef(null); // Reference for the menu
 
+    // Bejelentkezési állapot tesztelése:
+    const { loginState, setLoginState } = useContext(LoginContext);
+    console.log(`Bejelentkezés állapota: ${loginState}`);
+    // Bejelentkezési állapot tesztelése //
 
-    //Bejelentkezési állapot tesztelése:
-    const {loginState, setLoginState} = useContext(LoginContext);
-    console.log(`Bejelentkezés állapota: ${loginState}`)
-    //Bejelentkezési állapot tesztelése//
+    const mainPage = () => {
+        window.location.assign('/');
+    };
 
-    const mainPage = ()=>{
-        window.location.assign('/')
-    }
+    const handleLogoutWithMessage = () => {
+        handleLogout(setLoginState); // Perform the logout logic
+        setLogoutMessageVisible(true); // Show the logout overlay
+        setTimeout(() => {
+            setLogoutMessageVisible(false); // Hide the logout overlay after 2000ms
+        }, 2000);
+    };
 
-    return(
+    // Close menu when navigating to another page
+    useEffect(() => {
+        setMenuVisible(false);
+    }, [location]);
+
+    // Close menu when clicking outside its borders
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                setMenuVisible(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+    return (
         <div className="header-content">
+            {logoutMessageVisible && (
+                <div className="logout-overlay">
+                    <p>Kijelentkezett!</p>
+                </div>
+            )}
             <div onClick={mainPage} className="logo">
                 <figure>
                     <img src="/assets/media/logo.jpeg" alt="Parfüm Oázis Logo" />
                 </figure>
                 <h2>Parfüm Oázis</h2>
             </div>
-            <div className="hamburger" onClick={()=> setMenuVisible(!menuVisible)}>
-                {`${!menuVisible? '☰' : 'X'}`}
+            <div
+                className="hamburger"
+                onMouseDown={(e) => {
+                    e.stopPropagation(); // Prevent the click from propagating to the document
+                }}
+                onClick={() => {
+                    setMenuVisible(!menuVisible);
+                }}
+            >
+                {`${!menuVisible ? '☰' : 'X'}`}
             </div>
-            <nav className={menuVisible? "open" : ""}>
+            <nav ref={menuRef} className={menuVisible ? "open" : ""}>
                 <ul>
                     <li>
                         <NavLink to={'/'} 
@@ -42,7 +83,7 @@ const Header=()=>{
                     </li>
                     
                     <li>
-                        <NavLink to={'/webshop?ferfi=true'} className={({ isActive }) => (isActive && location.pathname=== '/webshop' && location.search === '?ferfi=true' ? 'active' : '')}>Férfi Parfümök</NavLink>
+                        <NavLink to={'/webshop?ferfi=true'} className={({ isActive }) => (isActive && location.pathname === '/webshop' && location.search === '?ferfi=true' ? 'active' : '')}>Férfi Parfümök</NavLink>
                     </li>
                     <li>
                         <NavLink to={'/webshop?noi=true'} className={({ isActive }) => (isActive && location.pathname === '/webshop' && location.search === '?noi=true' ? 'active' : '')}>Női Parfümök</NavLink>
@@ -69,7 +110,7 @@ const Header=()=>{
                     </li>
                     {
                         loginState === true? 
-                        <li className="logout" onClick={()=>handleLogout(setLoginState)}>
+                        <li className="logout" onClick={handleLogoutWithMessage}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-box-arrow-right" viewBox="0 0 16 16">
                             <path fillRule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
                             <path fillRule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
@@ -81,7 +122,7 @@ const Header=()=>{
                 </ul>
             </nav>
         </div>
-    )
-}
+    );
+};
 
 export default Header;

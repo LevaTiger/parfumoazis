@@ -1,75 +1,80 @@
-.card{
+.card {
     border: 1px solid grey;
     border-radius: 10px;
     box-sizing: border-box;
 
     width: 300px;
     height: 500px;
-    
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    
 }
+
 .card-title, .card p {
     flex-grow: 1;
 }
-.card h4{
+
+.card h4 {
     text-align: center;
 }
+
 .card figure {
     width: 100%;
-    height: 210px; /* Rögzített magasság */
+    height: 210px; /* Fixed height */
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.card figure img{
+
+.card figure img {
     max-width: auto;
     max-height: 100%;
     object-fit: contain;
     border-radius: 10px;
 }
 
-.card .card-title{
+.card .card-title {
     min-height: 3rem;
     text-align: center;
 }
 
 @media (max-width: 768px) {
     .card {
-        width: 90%; /* Kártya szélessége 100% mobil nézetben */
-        height: auto; /* Magasság automatikus */
+        width: 90%; /* Card width 90% in mobile view */
+        height: auto; /* Automatic height */
     }
 }
 
-.card button{  
+.card button {  
     border: 0px;
     border-radius: 50px;
     background-color: #75c32c;
-    padding: 1rem;
-    color:white;
+    padding: 0.8rem 1rem; /* Adjusted padding for better fit */
+    color: white;
     transition: background-color 200ms, color 200ms;
     box-shadow: 0px 5px 5px grey; 
     font-weight: bold;
-    
     margin-bottom: 1rem;
+    width: 90%; /* Ensure the button fits within the card */
+    max-width: 250px; /* Optional: Limit the button's maximum width */
+    text-align: center;
 }
 
-.card button:hover{
+.card button:hover {
     background-color: #FC5F5F;
     cursor: pointer;
 }
 
-.card .purchase-item{
+.card .purchase-item {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 1rem;
 }
+
 .card .purchase-item a {
     color: grey;
 }

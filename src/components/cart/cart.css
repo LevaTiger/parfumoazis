@@ -124,3 +124,33 @@
         margin-bottom: 0; /* Az utolsó cella alatti térköz eltávolítása */
     }
 }
+
+
+/*Termékek mennyiségének növelése és csökkentése*/
+.value-td{
+}
+.value-td-div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.value-td-div .value-add-btn{
+    border-radius: 4px ;
+    background-color: hsl(84, 100%, 40%);
+    font-size: x-large;
+    width: 40px;
+    height: 40px;
+}
+.value-td-div .value-add-btn:hover{
+    background-color: hsl(84, 100%, 50%);
+}
+.value-td-div .value-subtract-btn{
+    border-radius: 4px ;
+    background-color: hsl(0, 100%, 30%);
+    font-size: x-large;
+    width: 40px;
+    height: 40px;
+}
+
