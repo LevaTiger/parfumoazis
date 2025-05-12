@@ -1,0 +1,121 @@
+Projekt Dokumentáció – Parfüm Oázis Frontend
+============================================
+
+Projekt Áttekintés
+------------------
+Ez a projekt a Parfüm Oázis weboldal frontendjét valósítja meg, amely egy modern, reszponzív felhasználói felületet biztosít a webshop, kosárkezelés, bejelentkezés és regisztráció funkciókhoz. A cél egy könnyen kezelhető, esztétikus és gyors webalkalmazás létrehozása.
+
+Főbb Funkciók
+-------------
+1. Webshop:
+   - Termékek listázása kategóriák szerint (férfi, női, unisex parfümök).
+   - Termékek kosárba helyezése a "Kosárba" gombbal.
+   - Szűrési és keresési lehetőségek.
+
+2. Kosár:
+   - Kosár tartalmának megjelenítése.
+   - Termékek mennyiségének módosítása.
+   - Termékek eltávolítása a kosárból.
+   - Részösszegek és teljes összeg kiszámítása.
+
+3. Bejelentkezés és Regisztráció:
+   - Felhasználók bejelentkezése és regisztrációja.
+   - Sikeres bejelentkezés és kijelentkezés esetén overlay üzenet megjelenítése.
+
+4. Navigáció:
+   - Reszponzív fejléc menü hamburger ikonnal.
+   - Oldalak közötti navigáció.
+
+Technológiák
+------------
+- React.js: A teljes frontend logika és komponens alapú felépítés megvalósítására.
+- React Router: Oldalak közötti navigáció kezelésére.
+- CSS: Egyedi stílusok létrehozása, beleértve a reszponzív dizájnt.
+- Bootstrap Icons: Ikonok használata a vizuális elemekhez (pl. bejelentkezés, kijelentkezés ikonok).
+- LocalStorage: Kosár adatok tárolása a böngészőben.
+
+Projekt Struktúra
+-----------------
+frontend2025 munkák/
+├── src/
+│   ├── components/
+│   │   ├── defaultLayout/
+│   │   │   ├── header/
+│   │   │   │   ├── Header.jsx
+│   │   │   │   ├── header.css
+│   │   ├── homepage/
+│   │   │   ├── Homepage.jsx
+│   │   │   ├── homepage.css
+│   │   ├── webshop/
+│   │   │   ├── Webshop.jsx
+│   │   │   ├── webshop.css
+│   │   ├── cart/
+│   │   │   ├── Cart.jsx
+│   │   │   ├── cart.css
+│   │   ├── loginPage/
+│   │   │   ├── LoginPage.jsx
+│   │   │   ├── login-page.css
+│   ├── features/
+│   │   ├── productCard/
+│   │   │   ├── ProductCard.jsx
+│   │   │   ├── product-card.css
+│   │   ├── functions/
+│   │   │   ├── handleTouch.js
+│   │   │   ├── userLoginOut.js
+│   │   ├── contexts/
+│   │   │   ├── LoginContext.js
+
+
+Fontos Információ
+-----------------
+Ez az oldal egy már Wordpress-ben létrehozott oldal React.js-re formált Frontend verziója.
+Az eredeti oldalon 'Astra' témát használtak, így ezt a hasonló stílus van alkalmazva az projektben.
+
+
+Fontos Komponensek
+------------------
+1. DefaultLayout.jsx:
+   - Az alapértelmezett elrendezésért felelő oldal, amely tartalmazza:
+	- Header.jsx 
+	- Outlet-et React Router segítségével és 
+	- Footer.jsx
+1. Header.jsx:
+   - Navigációs menü és kijelentkezés funkció.
+   - Kijelentkezéskor overlay üzenet jelenik meg.
+
+2. Homepage.jsx:
+   - Kezdőlap tartalma, beleértve a termékkategóriák linkjeit.
+
+3. Webshop.jsx:
+   - Termékek listázása és szűrési lehetőségek.
+
+4. Cart.jsx:
+   - Kosár tartalmának kezelése (mennyiség módosítása, törlés).
+
+5. LoginPage.jsx:
+   - Bejelentkezési és regisztrációs űrlapok.
+
+Fejlesztési Útmutató
+--------------------
+1. Telepítés:
+   - Futtassa az alábbi parancsot a szükséges csomagok telepítéséhez:
+     npm install
+
+2. Fejlesztői Szerver Indítása:
+   - Indítsa el a fejlesztői szervert:
+     npm start
+
+3. Stílusok Módosítása:
+   - Az egyes komponensekhez tartozó CSS fájlok a `src/components` mappában találhatók.
+
+4. Adatok Tárolása:
+   - A kosár adatai a `localStorage`-ban kerülnek tárolásra.
+
+További Információk
+-------------------
+- Reszponzív Dizájn:
+   - Az alkalmazás mobilbarát, és a stílusok a `@media` lekérdezésekkel vannak optimalizálva.
+- Overlay Üzenetek:
+   - Bejelentkezés és kijelentkezés esetén animált overlay üzenetek jelennek meg.
+
+Ez a dokumentáció segíti a fejlesztőket a projekt megértésében és bővítésében.
