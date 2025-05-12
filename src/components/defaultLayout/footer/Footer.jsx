@@ -64,6 +64,9 @@ const Footer =()=>{
             <div className="copyright">
                 <small>Parfüm Oázis 2025 ©
                 </small>
+                <small>
+                    Weboldalt készítette: Bognár Levente
+                </small>
             </div>
         </footer>
     )
