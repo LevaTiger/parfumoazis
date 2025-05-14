@@ -62,6 +62,8 @@ const Homepage = () => {
 
                 <h2 className="primary-gradient">AKCIÓS SZETTEK</h2>
                 <div className="parfume-onsale">
+
+                    {/* Itt az akciós termékek kezdődnek, de nem fixek, ezek csak példák */}
                     <div onTouchStart={handleTouch}>
                         <img
                             src="https://www.parfumoazis.hu/wp-content/uploads/2024/12/465590416_8622459897834263_6799252361705703811_n.jpg"

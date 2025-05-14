@@ -31,6 +31,7 @@ const Cart = () => {
     const handleQuantityChange = (azonosito, newQuantity) => {
         const quantity = parseInt(newQuantity, 10); // Konvertáljuk számra
         if (isNaN(quantity) || quantity < 1) return; // Ha nem szám vagy kisebb mint 1, ne frissítsük
+        if (quantity > 30) return; // Ha nagyobb mint 30, ne frissítsük
     
         const updatedItems = cartItems.map(product => 
             product.Azonosító === azonosito ? { ...product, Mennyiség: quantity } : product
